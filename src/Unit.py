@@ -2,35 +2,48 @@ import pygame
 
 
 class Unit:
+    __name = ""
     __hp = 0
     __damage = 0
     __moveSpeed = 0
-    __range = 0
-    __attackSpeed = 0
-    __name = ""
     __x = 0
     __y = 0
     __width = 16
     __height = 16
 
-    def __init__(self, hp: int, damage: int, moveSpeed: int, range: int, attackSpeed: int, name: str, x: int, y: int,
-                 width: int, height: int):
+    def __init__(self, name: str, hp: int, damage: int, moveSpeed: int, x: int, y: int, width: int, height: int):
+        self.__name = name
         self.__hp = hp
         self.__damage = damage
         self.__moveSpeed = moveSpeed
-        self.__range = range
-        self.__attackSpeed = attackSpeed
-        self.__name = name
         self.__x = x
         self.__y = y
         self.__width = width
         self.__height = height
+
+    def getUnitName(self):
+        return self.__name
+
+    def getUnitHp(self):
+        return self.__hp
+
+    def getUnitDamage(self):
+        return self.__damage
+
+    def getUnitMoveSpeed(self):
+        return self.__moveSpeed
 
     def getUnitX(self):
         return self.__x
 
     def getUnitY(self):
         return self.__y
+
+    def getUnitWidth(self):
+        return self.__width
+
+    def getUnitHeight(self):
+        return self.__height
 
     def move(self):
         self.__y += self.__moveSpeed
