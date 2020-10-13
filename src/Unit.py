@@ -51,8 +51,8 @@ class Unit:
     def unitHitBox(self):
         _unitHitBox = pygame.Rect(self.__x, self.__y, self.__width, self.__height)
 
-    def update(self):
-        __unitHitBox = __unitRect
+    # def update(self):
+    #     __unitHitBox = __unitRect
 
     def draw(self, surface):
         __unitRect = pygame.draw.rect(surface, (0, 0, 128), self.__x, self.__y, self.__width, self.__height)
