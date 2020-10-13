@@ -1,5 +1,6 @@
 import pygame
 import pygame.sprite
+from src.GameView import *
 
 
 class Player(pygame.sprite.Sprite):
@@ -12,10 +13,16 @@ class Player(pygame.sprite.Sprite):
     __wCastle = 64
 
     mouseHit = False
-    castleImg = pygame.image.load("Sprites/castlebig.png")
 
     def __init__(self, hp: int, money: int, name: str):
         pygame.sprite.Sprite.__init__(self)
+
+        self.sprites = []
+        self.sprites.append(pygame.image.load("Sprites/castlebig.png"))
+
+        self.image = self.sprites[0]
+        self.rect = self.image.get_rect()
+        self.rect.topleft = [self.__xCastle, self.__yCastle]
 
         self.__cash = money
         self.__hitPoints = hp
