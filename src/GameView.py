@@ -18,6 +18,5 @@ class GameView:
                 if event.type == pygame.QUIT:
                     self.is_running = False
 
-            window.fill((0, 225, 0))
             pygame.display.update()
             pygame.time.Clock().tick(self.FPS)
