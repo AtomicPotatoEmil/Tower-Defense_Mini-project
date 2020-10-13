@@ -1,58 +1,67 @@
 import pygame
+import pygame.sprite
 
 
-class Unit:
-    __name = ""
-    __hp = 0
-    __damage = 0
-    __moveSpeed = 0
-    __x = 0
-    __y = 0
-    __width = 16
-    __height = 16
+class Unit(pygame.sprite.Sprite):
+    __unitName = ""
+    __unitHp = 0
+    __unitDamage = 0
+    __unitMoveSpeed = 0
+    __unitX = 0
+    __unitY = 0
+    __unitWidth = 16
+    __unitHeight = 16
 
     def __init__(self, name: str, hp: int, damage: int, moveSpeed: int, x: int, y: int, width: int, height: int):
-        self.__name = name
-        self.__hp = hp
-        self.__damage = damage
-        self.__moveSpeed = moveSpeed
-        self.__x = x
-        self.__y = y
-        self.__width = width
-        self.__height = height
+        pygame.sprite.Sprite.__init__(self)
+
+        self.sprites = []
+        self.sprites.append(pygame.image.load("Sprites/castlebig.png"))
+
+        self.__unitName = name
+        self.__unitHp = hp
+        self.__unitDamage = damage
+        self.__unitMoveSpeed = moveSpeed
+        self.__unitX = x
+        self.__unitY = y
+        self.__unitWidth = width
+        self.__unitHeight = height
 
     def getUnitName(self):
-        return self.__name
+        return self.__unitName
 
     def getUnitHp(self):
-        return self.__hp
+        return self.__unitHp
 
     def getUnitDamage(self):
-        return self.__damage
+        return self.__unitDamage
 
     def getUnitMoveSpeed(self):
-        return self.__moveSpeed
+        return self.__unitMoveSpeed
 
     def getUnitX(self):
-        return self.__x
+        return self.__unitX
 
     def getUnitY(self):
-        return self.__y
+        return self.__unitY
 
     def getUnitWidth(self):
-        return self.__width
+        return self.__unitWidth
 
     def getUnitHeight(self):
-        return self.__height
+        return self.__unitHeight
 
-    def move(self):
-        self.__y += self.__moveSpeed
+    def unitCollision(self, getUnitRect):
+        unitHitBox = pygame.Rect(self.__unitX, self.__unitY, self.__unitWidth, self.__unitHeight)
+        unitHitBox.colliderect(getUnitRect)
 
-    def unitHitBox(self):
-        _unitHitBox = pygame.Rect(self.__x, self.__y, self.__width, self.__height)
-
+<<<<<<< Updated upstream
     # def update(self):
     #     __unitHitBox = __unitRect
+=======
+    def drawUnit(self, window):
+        window.blit(self.unitSprite, (self.__unitX, self.__unitY))
+>>>>>>> Stashed changes
 
-    def draw(self, surface):
-        __unitRect = pygame.draw.rect(surface, (0, 0, 128), self.__x, self.__y, self.__width, self.__height)
+    def updateUnit(self, window):
+        self.drawUnit(window)
