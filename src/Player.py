@@ -10,8 +10,8 @@ class Player:
     __cash = 0
     __hitPoints = 0
     __name = "default"
-    __xCastle = 0
-    __yCastle = 0
+    __xCastle = 100
+    __yCastle = 100
     __hCastle = 64
     __wCastle = 64
 
@@ -19,12 +19,11 @@ class Player:
     castleImg = pygame.image.load("Sprites/castlebig.png")
 
 
-    def __init__(self, hp: int, money: int, name: str, xCastle, yCastle):
+    def __init__(self, hp: int, money: int, name: str):
         self.__cash = money
         self.__hitPoints = hp
         self.__name = name
-        castleDisplay = pygame.display.set_mode((self.__wCastle,self.__hCastle))
-        castleDisplay.blit(self.castleImg, (xCastle, yCastle))
+
 
 
 
@@ -68,7 +67,13 @@ class Player:
         if self.mouseHit == True:
             self.buyUnits(unitCost)
 
-    def updatePlayer(self):
-        self.takeDamage()
-        self.hitDetection()
 
+    def drawCastle(self):
+        castleDisplay = pygame.display.set_mode((self.__wCastle, self.__hCastle))
+        castleDisplay.blit(self.castleImg, (self.__xCastle, self.__yCastle))
+
+
+    def updatePlayer(self):
+        # self.takeDamage()
+        # self.hitDetection()
+        self.drawCastle()
