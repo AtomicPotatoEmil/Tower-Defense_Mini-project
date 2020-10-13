@@ -68,12 +68,11 @@ class Player:
             self.buyUnits(unitCost)
 
 
-    def drawCastle(self):
-        castleDisplay = pygame.display.set_mode((self.__wCastle, self.__hCastle))
-        castleDisplay.blit(self.castleImg, (self.__xCastle, self.__yCastle))
+    def drawCastle(self, window):
+        window.blit(self.castleImg, (self.__xCastle, self.__yCastle))
 
 
-    def updatePlayer(self):
+    def updatePlayer(self, window):
         # self.takeDamage()
         # self.hitDetection()
-        self.drawCastle()
+        self.drawCastle(window)

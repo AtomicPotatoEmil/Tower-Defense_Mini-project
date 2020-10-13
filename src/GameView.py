@@ -1,12 +1,15 @@
 import pygame
-
+from src.Player import *
 class GameView:
+
 
     def __init__(self, is_running : bool, width : int, height : int, FPS : int):
         self.is_running = is_running
         self.width = width
         self.height = height
         self.FPS = FPS
+
+        self.player = Player(10, 10, "bob")
 
     def update_game(self):
         pygame.init()
@@ -18,5 +21,7 @@ class GameView:
                     self.is_running = False
 
             window.fill((0, 225, 0))
+
+            self.player.drawCastle(window)
             pygame.display.update()
             pygame.time.Clock().tick(self.FPS)
