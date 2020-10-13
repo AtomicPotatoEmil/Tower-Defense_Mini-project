@@ -19,7 +19,6 @@ class Player(pygame.sprite.Sprite):
 
         self.sprites = []
         self.sprites.append(pygame.image.load("Sprites/castlebig.png"))
-
         self.image = self.sprites[0]
         self.rect = self.image.get_rect()
         self.rect.topleft = [self.__xCastle, self.__yCastle]
@@ -69,7 +68,9 @@ class Player(pygame.sprite.Sprite):
     def drawCastle(self, window):
         window.blit(self.castleImg, (self.__xCastle, self.__yCastle))
 
-    def updatePlayer(self, window):
-        # self.takeDamage()
-        # self.hitDetection()
+
+    def updatePlayer(self, window, damage: int, getRect):
+        self.takeDamage(damage)
+        self.hitDetection(getRect)
         self.drawCastle(window)
+
