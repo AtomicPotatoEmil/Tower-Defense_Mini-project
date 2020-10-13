@@ -12,8 +12,6 @@ class Unit:
     __y = 0
     __width = 16
     __height = 16
-    olleh = 12
-    test = "test"
 
     def __init__(self, hp: int, damage: int, moveSpeed: int, range: int, attackSpeed: int, name: str, x: int, y: int,
                  width: int, height: int):
@@ -38,7 +36,7 @@ class Unit:
         self.__y += self.__moveSpeed
 
     def unitHitBox(self):
-        __unitHitBox = pygame.Rect(self.__x, self.__y, self.__width, self.__height)
+        _unitHitBox = pygame.Rect(self.__x, self.__y, self.__width, self.__height)
 
     def update(self):
         __unitHitBox = __unitRect
