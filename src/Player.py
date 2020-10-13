@@ -1,33 +1,25 @@
-
-
 import pygame
 import pygame.sprite
 
 
-
-
-class Player:
+class Player(pygame.sprite.Sprite):
     __cash = 0
     __hitPoints = 0
     __name = "default"
-    __xCastle = 100
-    __yCastle = 100
+    __xCastle = 168
+    __yCastle = 636
     __hCastle = 64
     __wCastle = 64
 
     mouseHit = False
     castleImg = pygame.image.load("Sprites/castlebig.png")
 
-
     def __init__(self, hp: int, money: int, name: str):
+        pygame.sprite.Sprite.__init__(self)
+
         self.__cash = money
         self.__hitPoints = hp
         self.__name = name
-
-
-
-
-
 
     def getName(self):
         return self.__name
@@ -67,10 +59,8 @@ class Player:
         if self.mouseHit == True:
             self.buyUnits(unitCost)
 
-
     def drawCastle(self, window):
         window.blit(self.castleImg, (self.__xCastle, self.__yCastle))
-
 
     def updatePlayer(self, window):
         # self.takeDamage()
