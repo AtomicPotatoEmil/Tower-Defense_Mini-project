@@ -1,8 +1,6 @@
 import pygame
 from src.Player import Player
 
-all_sprites = pygame.sprite.Group()
-
 
 class GameView:
 
@@ -12,13 +10,15 @@ class GameView:
         self.height = height
         self.FPS = FPS
 
+        self.all_sprites = pygame.sprite.Group()
+
     def update_game(self):
         pygame.init()
         window = pygame.display.set_mode((self.width, self.height))
 
         player1 = Player(10, 10, "Gabe")
-        all_sprites.add(player1)
-        all_sprites.draw(window)
+        self.all_sprites.add(player1)
+        self.all_sprites.draw(window)
         while (self.is_running):
             for event in pygame.event.get():
 
